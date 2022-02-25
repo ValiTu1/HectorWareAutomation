@@ -14,11 +14,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class ContactsStepDefs {
 
     ContactsPage contactsPage = new ContactsPage();
+    WebDriverWait wait = new WebDriverWait(Driver.get(), 10);
 
     @Given("user navigates to {string} page")
     public void user_navigates_to_page(String tabName) {
-        WebDriverWait wait = new WebDriverWait(Driver.get(), 10);
-        wait.until(ExpectedConditions.visibilityOf(contactsPage.loader));
+        wait.until(ExpectedConditions.invisibilityOf(contactsPage.loader));
         contactsPage.navigateMenuTab("Contacts");
     }
 
@@ -29,21 +29,31 @@ public class ContactsStepDefs {
 
     @When("user clicks on new group button")
     public void userClicksOnNewGroupButton() {
+        Utils.wait(1);
         contactsPage.newGroupBtn.click();
     }
 
-    @And("user enters valid group name {string}")
+    @And("user enters group name {string}")
     public void userEntersValidGroupName(String groupName) {
-        Utils.wait(4);
-        contactsPage.createNewGroup(groupName);
+        contactsPage.enterGroupName(groupName);
     }
 
     @And("user clicks to create the new group")
     public void userClicksToCreateTheNewGroup() {
-        //contactsPage.createGroupArrowBtn.click();
+        Utils.wait(1);
+        contactsPage.createGroupArrowBtn.click();
     }
 
-    @Then("new group should be displayed")
-    public void newGroupShouldBeDisplayed() {
+    @Then("{string} group should be displayed")
+    public void groupShouldBeDisplayed(String groupName) {
+        System.out.println(contactsPage.isGroupCreated(groupName));
+        Assert.assertTrue(contactsPage.isGroupCreated(groupName));
+    }
+
+    @Then("{string} should be displayed")
+    public void shouldBeDisplayed(String error) {
+        wait.until(ExpectedConditions.visibilityOf(contactsPage.newGroupErrorMessage));
+        Utils.wait(1);
+        Assert.assertTrue(contactsPage.newGroupErrorMessage.isDisplayed());
     }
 }
