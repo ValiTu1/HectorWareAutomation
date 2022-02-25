@@ -1,4 +1,4 @@
-@wip
+
 Feature: contacts functionality
 
   Background:
