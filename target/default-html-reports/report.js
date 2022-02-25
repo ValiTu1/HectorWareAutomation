@@ -2,12 +2,7 @@ $(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.
 formatter.feature({
   "name": "contacts functionality",
   "description": "",
-  "keyword": "Feature",
-  "tags": [
-    {
-      "name": "@wip"
-    }
-  ]
+  "keyword": "Feature"
 });
 formatter.background({
   "name": "",
@@ -48,7 +43,7 @@ formatter.result({
   "status": "passed"
 });
 formatter.scenario({
-  "name": "users can create new groups",
+  "name": "users cannot create new groups having existing names",
   "description": "",
   "keyword": "Scenario",
   "tags": [
@@ -78,7 +73,7 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "user enters valid group name \"Cybertek\"",
+  "name": "user enters group name \"cydeo\"",
   "keyword": "And "
 });
 formatter.match({
@@ -98,11 +93,11 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "new group should be displayed",
+  "name": "\"This group already exists\" should be displayed",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "com.hectorware.step_definitions.ContactsStepDefs.newGroupShouldBeDisplayed()"
+  "location": "com.hectorware.step_definitions.ContactsStepDefs.shouldBeDisplayed(java.lang.String)"
 });
 formatter.result({
   "status": "passed"
