@@ -1,3 +1,4 @@
+
 Feature:Log-out
 	@wip  @HECW-205
   Scenario: user can log-out
@@ -9,3 +10,4 @@ Feature:Log-out
 		Then Verify options are displayed
 		And Click on Log out button
 		Then Verify that user logged out and lands on login page
+
