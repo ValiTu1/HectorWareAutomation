@@ -1,4 +1,4 @@
-@wip
+
 Feature: contacts functionality
 
   Background:
@@ -9,6 +9,22 @@ Feature: contacts functionality
   Scenario: users can create new groups
     Given user is on the "Contacts" page
     When user clicks on new group button
-    And user enters valid group name "Cybertek"
+    And user enters group name "cydeo3"
     And user clicks to create the new group
-    Then new group should be displayed
+    Then "cydeo3" group should be displayed
+  @wip
+    Scenario: users cannot create new groups having existing names
+      Given user is on the "Contacts" page
+      When user clicks on new group button
+      And user enters group name "cydeo"
+      And user clicks to create the new group
+      Then "This group already exists" should be displayed
+
+    Scenario: Users can create new contacts and add them to groups
+      Given user is on the "Contacts" page
+      When user click on create new contact button
+      And user enters contact details
+      And user assign the user to a group
+      Then new contact will be displayed as part of the selected group
+
+
