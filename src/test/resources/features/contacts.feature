@@ -22,9 +22,9 @@ Feature: contacts functionality
 
     Scenario: Users can create new contacts and add them to groups
       Given user is on the "Contacts" page
-      When user click on create new contact button
+      When user clicks on create new contact button
       And user enters contact details
-      And user assign the user to a group
+      And user assigns the user to a group
       Then new contact will be displayed as part of the selected group
 
 

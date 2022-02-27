@@ -56,4 +56,9 @@ public class ContactsStepDefs {
         Utils.wait(1);
         Assert.assertTrue(contactsPage.newGroupErrorMessage.isDisplayed());
     }
+
+    @When("user clicks on create new contact button")
+    public void userClicksOnCreateNewContactButton() {
+
+    }
 }
